@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+    <div class="container">
+        <img src="http://127.0.0.1:5500/logo.svg" alt="" class="img1">
+        <button class="brn1">Try it free</button>
+        <h1>Build The Community Your Fans Will Love</h1>
+        <p class="p1">Huddle re-imagines the way we build communities. You have a voice, but
+             so does your audience. Create connections with your users as you engage in genuine discussion</p>
+        <img src="http://127.0.0.1:5500/illustration-mockups.svg" alt="" class="img2">
+        <button class="brn">Get started for free</button>
+        
+
+    </div>
+
+    <br><br><br><br><br>
+
+
+
+</main>
+<script>
+    const btn1 = document.querySelector('.brn1');
+    const btn2 = document.querySelector('.brn');
+    btn1.addEventListener('click', function() {
+        btn1.textContent = 'Thanks, got it!';
+        btn1.disabled = true;
+    });
+    btn2.addEventListener('click', function() {
+        btn2.textContent = 'Thanks, got it!';
+        btn2.disabled = true;
+    });
+
+
+    const img1 = document.querySelector('.img1');
+    const img2 = document.querySelector('.img2');
+    img1.addEventListener('mouseover', function() {
+        img1.style.filter = 'brightness(120%)';
+    });
+    img1.addEventListener('mouseout', function() {
+        img1.style.filter = 'brightness(100%)';
+    });
+    img2.addEventListener('mouseover', function() {
+        img2.style.filter = 'brightness(120%)';
+    });
+    img2.addEventListener('mouseout', function() {
+        img2.style.filter = 'brightness(100%)';
+    });
+
+
+
+  
+
+    
+    const brn1 = document.querySelector('.brn1');
+    const brn2 = document.querySelector('.brn');
+    brn1.classList.add('animated');
+    brn1.addEventListener('animationend', function() {
+        brn1.classList.remove('animated');
+    });
+    brn2.classList.add('animated');
+    brn2.addEventListener('animationend', function() {
+        brn2.classList.remove('animated');
+    });
+
+  
+    const container = document.querySelector('.container');
+    window.addEventListener('mousemove', function(e) {
+        const x = (e.clientX / window.innerWidth) * 10;
+        const y = (e.clientY / window.innerHeight) * 10;
+        container.style.backgroundPosition = `${x}px ${y}px`;
+    });
+
+    
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({ behavior:'smooth' });
+        });
+    });
+
+    
+    const spinner = document.querySelector('.spinner');
+    setTimeout(function() {
+        spinner.style.display = 'none';
+    }, 3000);
+
+   
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'http://127.0.0.1:5500/broken-image.svg';
+        });
+    });
+
+</script>
+</body>
+</html>
